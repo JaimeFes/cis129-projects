@@ -1,4 +1,4 @@
-Welcome to the coffee shop!
+print('Welcome to the coffee shop!')
 
 # Declare variables
 numberOfCoffeesPurchased = 0
