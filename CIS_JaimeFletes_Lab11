@@ -1,0 +1,43 @@
+PART 1:
+grades = ()
+
+with open('Grades.txt', mode='w') as file:
+    for grade in grades:
+        grade.write(str(grade) + "\n")
+
+PART 2:
+with open("Grades.txt", mode="r") as file:
+    grades = [float(line.strip()) for line in file]
+
+# Displays individual grades
+print("Individual grades:")
+for grade in grades:
+    print(grade)
+
+# Calculate total, count, and average
+total = sum(grades)
+count = len(grades)
+average = total / count
+new_Average = '{:.1f}'.format(average)
+
+#displays total, count, and average
+print(f'{"total":<10}{"count":<10}{"average":>10}')
+print(f'{total:<10}{count:<10}{new_Average:>10}')
+
+PART 3:
+import csv
+
+again = 'y'
+
+while True:
+    first_name = input("Enter student's first name: ")
+    last_name = input("Enter student's last name: ")
+    exam1_grade = int(input("Enter student's exam 1 grade: "))
+    exam2_grade = int(input("Enter student's exam 2 grade: "))
+    exam3_grade = int(input("Enter student's exam 3 grade: "))
+    with open('Grades.csv', mode='a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([first_name, last_name, exam1_grade, exam2_grade, exam3_grade])
+    choice = input("Do you want to enter grades for another student? (y/n): ")
+    if choice.lower() != 'y':
+        break
